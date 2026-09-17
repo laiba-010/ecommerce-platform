@@ -17,7 +17,7 @@ export default function OrdersPage() {
     const fetchOrders = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/orders"
+          "https://ecommerce-platform-cw8q0k2sl-task-flow-8fca.vercel.app/api/orders"
         );
 
         if (!response.ok) {

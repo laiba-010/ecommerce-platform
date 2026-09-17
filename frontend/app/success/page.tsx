@@ -19,7 +19,7 @@ export default function SuccessPage() {
 
       try {
         const response = await fetch(
-          `http://localhost:5000/api/orders/confirm?session_id=${sessionId}`
+          "https://ecommerce-platform-cw8q0k2sl-task-flow-8fca.vercel.app/api/orders/confirm?session_id="
         );
 
         const data = await response.json();

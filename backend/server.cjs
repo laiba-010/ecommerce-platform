@@ -55,10 +55,8 @@ app.post("/api/payment/create-checkout-session", async (req, res) => {
         totalAmount: String(amount),
       },
 
-      success_url:
-        "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
-
-      cancel_url: "http://localhost:3000/cart",
+      success_url: "https://fabulous-cocada-43acee.netlify.app/success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "https://fabulous-cocada-43acee.netlify.app/#cart",
     });
 
     res.json({

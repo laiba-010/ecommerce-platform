@@ -55,7 +55,7 @@ useEffect(() => {
     try {
     
       const response = await fetch(
-  "http://127.0.0.1:5000/api/products"
+  "https://ecommerce-platform-cw8q0k2sl-task-flow-8fca.vercel.app/api/products"
 );
 
       if (!response.ok) {
@@ -136,7 +136,7 @@ useEffect(() => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/payment/create-checkout-session",
+        "https://ecommerce-platform-cw8q0k2sl-task-flow-8fca.vercel.app/api/payment/create-checkout-session",
         {
           method: "POST",
           headers: {
