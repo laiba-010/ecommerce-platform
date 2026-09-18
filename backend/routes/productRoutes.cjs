@@ -29,6 +29,35 @@ router.get("/", async (req, res) => {
     });
   }
 });
+
+router.post("/", async (req, res) => {
+  try {
+    if (!db) {
+      return res.status(503).json({
+        message: "Database is still connecting...",
+      });
+    }
+
+    const product = await db.orm.public.Product.create({
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      image: req.body.image,
+      category: req.body.category,
+      stock: req.body.stock,
+    });
+
+    res.status(201).json(product);
+  } catch (error) {
+    console.error("Create Product Error:", error);
+
+    res.status(500).json({
+      message: "Failed to create product",
+      error: error.message,
+    });
+  }
+});
+
 router.delete("/:id", async (req, res) => {
   try {
     if (!db) {
