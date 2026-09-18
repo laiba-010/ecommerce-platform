@@ -37,15 +37,7 @@ const getProductIcon = (product: Product) => {
 };
 
 export default function Home() {
-  const [cart, setCart] = useState<number[]>(() => {
-  if (typeof window === "undefined") {
-    return [];
-  }
-
-  const savedCart = localStorage.getItem("shopease-cart");
-
-  return savedCart ? JSON.parse(savedCart) : [];
-});
+const [cart, setCart] = useState<number[]>([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [products, setProducts] = useState<Product[]>([]);
@@ -55,7 +47,7 @@ useEffect(() => {
     try {
     
       const response = await fetch(
-  "https://ecommerce-platform-cw8q0k2sl-task-flow-8fca.vercel.app/api/products"
+ "https://ecommerce-platform-production-9dc2.up.railway.app/api/products"
 );
 
       if (!response.ok) {
@@ -136,7 +128,7 @@ useEffect(() => {
 
     try {
       const response = await fetch(
-        "https://ecommerce-platform-cw8q0k2sl-task-flow-8fca.vercel.app/api/payment/create-checkout-session",
+        "https://ecommerce-platform-production-9dc2.up.railway.app/api/payment/create-checkout-session",
         {
           method: "POST",
           headers: {

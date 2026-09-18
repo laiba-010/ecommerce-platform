@@ -29,5 +29,31 @@ router.get("/", async (req, res) => {
     });
   }
 });
+router.delete("/:id", async (req, res) => {
+  try {
+    if (!db) {
+      return res.status(503).json({
+        message: "Database is still connecting...",
+      });
+    }
+
+    const id = Number(req.params.id);
+
+    await db.orm.public.Product.delete({
+      where: { id },
+    });
+
+    res.json({
+      message: "Product deleted successfully",
+    });
+  } catch (error) {
+    console.error("Delete Product Error:", error);
+
+    res.status(500).json({
+      message: "Failed to delete product",
+      error: error.message,
+    });
+  }
+});
 
 module.exports = router;
