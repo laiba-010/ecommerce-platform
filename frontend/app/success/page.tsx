@@ -19,8 +19,8 @@ export default function SuccessPage() {
 
       try {
         const response = await fetch(
-          "https://ecommerce-platform-cw8q0k2sl-task-flow-8fca.vercel.app/api/orders/confirm?session_id="
-        );
+  `https://ecommerce-platform-production-9dc2.up.railway.app/api/orders/confirm?session_id=${sessionId}`
+);
 
         const data = await response.json();
 
